@@ -14,7 +14,8 @@
     </header>
 
     <div class = "container">
-      <form>
+      <!--onsubmit="return false" => input 에서 enter 이벤트 발생시 페이지를 다시 로드하는 것을 방지-->
+      <form onsubmit="return false;">
         <input type="text" placeholder="검색어를 입력하세요" autofocus>
         <button type="reset" class="btn-reset"></button>
       </form>
