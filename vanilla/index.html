@@ -15,10 +15,17 @@
 
     <div class = "container">
       <!--onsubmit="return false" => input 에서 enter 이벤트 발생시 페이지를 다시 로드하는 것을 방지-->
+      <!--입력 폼-->
       <form onsubmit="return false;">
         <input type="text" placeholder="검색어를 입력하세요" autofocus>
         <button type="reset" class="btn-reset"></button>
       </form>
+
+      <!--검색 결과 폼-->
+      <div class="content">
+        <div id="search-result">
+        </div>
+      </div>
     </div>
   </div>
   <script type="module" src="./js/app.js"></script>
