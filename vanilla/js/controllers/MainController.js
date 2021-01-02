@@ -29,6 +29,7 @@ export default{
 
     onReset(){
         console.log(tag, 'onReset()')
+        ResultView.hide()
     },
 
     onSearchResult(data){

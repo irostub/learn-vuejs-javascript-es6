@@ -11,6 +11,7 @@ ResultView.setup = function(el){
 ResultView.render = function(data=[]){
     console.log(tag,'render()',data)
     this.el.innerHTML = data.length ? this.getSearchResultsHtml(data): '검색 결과가 없습니다'
+    this.show()
 }
 
 ResultView.getSearchResultsHtml = function(data){
