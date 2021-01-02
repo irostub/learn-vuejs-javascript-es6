@@ -15,6 +15,7 @@ export default {
   list(query) {
     return new Promise(res => {
       setTimeout(()=> {
+        console.log(res)
         res(data)
       }, 200);
     })

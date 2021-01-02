@@ -19,11 +19,27 @@ FormView.showResetBtn = function(show = true){
 
 //inputEl은 html element input을 가져왔으므로 addEventListner를 통해 DOM에서 keyup 이벤트를 받아서 onKeyup함수로 핸들링
 FormView.bindEvents = function(){
+    //this.on('submit',e => e.preventDefault()) Enter를 눌러서 submit 했을 때 페이지 재로딩을 막기위해 사용
     this.inputEl.addEventListener('keyup', e => this.onKeyup(e))
+    this.resetEl.addEventListener('click', () => this.onClick())
 }
 
-FormView.onKeyup = function() {
+FormView.onClick = function(){
+    this.emit('@reset')
+    this.showResetBtn(false)
+}
+
+FormView.onKeyup = function(e) {
+    const enter = 13 //Enter의 키 값
     //inputEl input필드값의 길이,
     this.showResetBtn(this.inputEl.value.length)
+    if(this.inputEl.value.length===0) {
+        this.emit('@reset')
+        this.showResetBtn(false)
+    }
+    if (e.keyCode !== enter) return 
+    this.emit('@submit', {input: this.inputEl.value})
 }
+
+
 export default FormView
