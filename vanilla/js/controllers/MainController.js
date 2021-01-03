@@ -1,6 +1,7 @@
 import FormView from '../views/FormView.js'
 import ResultView from '../views/ResultView.js'
 import TabView from '../views/TabView.js'
+import KeywordView from '../views/KeywordView.js'
 
 import SearchModel from '../models/SearchModel.js'
 import KeywordModel from '../models/KeywordModel.js'
@@ -22,23 +23,28 @@ export default{
         TabView.setup(document.querySelector('#tabs'))
         .on('@tabClick', e => this.onClickTab(e.detail.tabName))
 
+        KeywordView.setup(document.querySelector('#search-keyword'))
+
         this.selectedTab = '추천 검색어'
         this.renderView()
-    },
-
-    onClickTab(tabName){
-        if(tabName === '추천 검색어'){
-            
-        }else if(tabName === '최근 검색어'){
-
-        }
-        debugger
     },
 
     renderView(){
         console.log('renderView()')
         TabView.setActiveTab(this.selectedTab)
+
+        if(this.selectedTab === '추천 검색어'){
+            this.fetchSearchKeyword()
+        }else{
+
+        }
         ResultView.hide()
+    },
+
+    fetchSearchKeyword(){
+        KeywordModel.list().then(data=>{
+            KeywordView.render(data)
+        })
     },
 
     search(query){
@@ -60,5 +66,13 @@ export default{
 
     onSearchResult(data){
         ResultView.render(data)
+    },
+    
+    onClickTab(tabName){
+        if(tabName === '추천 검색어'){
+            
+        }else if(tabName === '최근 검색어'){
+
+        }
     }
 }

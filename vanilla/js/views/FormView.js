@@ -6,11 +6,11 @@ const FormView = Object.create(View)
 
 FormView.setup = function(el){
     this.init(el)
-    console.log(el)
+    //console.log(el)
     this.inputEl = el.querySelector('[type=text]')
     this.resetEl = el.querySelector('[type=reset]')
-    console.log(this.inputEl)
-    console.log(this.resetEl)
+    //console.log(this.inputEl)
+    //console.log(this.resetEl)
     this.showResetBtn(false)
     this.bindEvents()
     return this
