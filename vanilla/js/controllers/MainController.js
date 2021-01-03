@@ -1,7 +1,10 @@
 import FormView from '../views/FormView.js'
 import ResultView from '../views/ResultView.js'
-import SearchModel from '../models/SearchModel.js'
 import TabView from '../views/TabView.js'
+
+import SearchModel from '../models/SearchModel.js'
+import KeywordModel from '../models/KeywordModel.js'
+import HistoryModel from '../models/HistoryModel.js'
 
 const tag = '[MainController]'
 
@@ -15,10 +18,21 @@ export default{
         .on('@reset', () => this.onReset())
 
         ResultView.setup(document.querySelector('#search-result'))
+
         TabView.setup(document.querySelector('#tabs'))
+        .on('@tabClick', e => this.onClickTab(e.detail.tabName))
 
         this.selectedTab = '추천 검색어'
         this.renderView()
+    },
+
+    onClickTab(tabName){
+        if(tabName === '추천 검색어'){
+            
+        }else if(tabName === '최근 검색어'){
+
+        }
+        debugger
     },
 
     renderView(){
