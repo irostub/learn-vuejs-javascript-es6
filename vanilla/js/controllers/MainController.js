@@ -24,6 +24,7 @@ export default{
         .on('@tabClick', e => this.onClickTab(e.detail.tabName))
 
         KeywordView.setup(document.querySelector('#search-keyword'))
+        .on('@keywordClick', e => this.onClickKeyword(e.detail.keyword))
 
         this.selectedTab = '추천 검색어'
         this.renderView()
@@ -65,6 +66,8 @@ export default{
     },
 
     onSearchResult(data){
+        KeywordView.hide()
+        TabView.hide()
         ResultView.render(data)
     },
     
@@ -74,5 +77,9 @@ export default{
         }else if(tabName === '최근 검색어'){
 
         }
+    },
+
+    onClickKeyword(keyword){
+        this.search(keyword)
     }
 }
