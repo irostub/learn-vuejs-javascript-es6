@@ -62,7 +62,7 @@ export default{
 
     onReset(){
         console.log(tag, 'onReset()')
-        ResultView.hide()
+        this.renderView()
     },
 
     onSearchResult(data){
@@ -81,5 +81,6 @@ export default{
 
     onClickKeyword(keyword){
         this.search(keyword)
+        FormView.setKeyword(keyword)
     }
 }
