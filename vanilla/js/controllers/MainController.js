@@ -62,6 +62,7 @@ export default{
 
     search(query){
         console.log(tag, 'search()', query)
+        HistoryModel.add(query)
         SearchModel.list(query).then(data=>{
             this.onSearchResult(data)
         })
