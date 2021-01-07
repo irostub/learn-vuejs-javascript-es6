@@ -14,7 +14,14 @@
     </header>
 
     <div class="container">
-      {{msg}}
+      <!-- vuejs 디렉티브 v-on:event="customEvent" prevent는 preventDefault()를 대체-->
+      <form v-on:submit.prevent="onSubmit">
+        <!-- vuejs 디렉티브 v-model : 입력받는 요소로부터 입력되는 입력값이 뷰 데이터의 지정 속성에 연결(양방향 바인딩)-->
+        <input type="text" v-model='query' placeholder="검색어를 입력하세요" autofocus>
+        <!-- vuejs 디렉티브 v-show : v-show="bool" bool이 참이면 화면에 표시 -->
+        <button type="reset" v-show='query.length' class="btn-reset"></button>
+      </form>
+      
     </div>
   </div>
   <!--vuejs CDN 방식으로 사용, 프로덕션 환경이 될 경우 @version 을 추가하는 것으로 특정버전 vuejs 사용가능-->
