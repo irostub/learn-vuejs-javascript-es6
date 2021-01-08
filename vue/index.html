@@ -41,12 +41,22 @@
           <li v-for="tab in tabs" v-on:click="onClickTab" v-bind:class="{active:tab===selectedTab}">{{tab}}</li>
         </ul>
 
-        <div v-if="selectedTab === tabs[0]" v-text="tabs[0]">
-          
-        </div>
-        <div v-else v-text="tabs[1]">
+        <div v-if="selectedTab === tabs[0]">
+          <div v-if="keywords.length">
+            <ul class="list">
+              <li @click="onClickKeyword(item.keyword)" v-for="(item, i) in keywords">
+                <span class="number">{{i+1}}</span>
+                {{item.keyword}}
+              </li>
+            </ul>
+          </div>
 
+          <div v-else>추천 검색어가 없습니다
+
+          </div>
         </div>
+        </div>
+        <div v-else v-text="tabs[1]"></div>
       </div>
     </div>
   </div>
