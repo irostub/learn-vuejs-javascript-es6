@@ -7,6 +7,12 @@ new Vue({
         onSubmit(e){
             
             debugger
+        },
+        onKeyup(e){
+            if(!this.query.length)this.onReset()
+        },
+        onReset(e){
+            this.query=''
         }
     }
 })
