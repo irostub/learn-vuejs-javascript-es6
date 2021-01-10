@@ -36,6 +36,9 @@ new Vue({
                 this.submitted =true
                 this.searchResult = data
             })
+            HistoryModel.add(this.query)
+            this.fetchHistory()
+            //console.log(this.history)
         },
         fetchKeyword(){
             KeywordModel.list().then(data=>{
