@@ -2,6 +2,8 @@ import SearchModel from './models/SearchModel.js'
 import KeywordModel from './models/KeywordModel.js'
 import HistoryModel from './models/HistoryModel.js'
 
+import FormComponent from './components/FormComponent.js'
+
 new Vue({
   el: '#app',
   data: {
@@ -12,6 +14,11 @@ new Vue({
     keywords: [],
     history: [],
     searchResult: []
+  },
+  //vue인스턴스에서 component를 사용하기 위해선 components속성에서 정의한다.
+  //keyValue로 사용할 디렉티브 명을 명시해주고 value로 바인딩할 component를 명시한다
+  components:{
+    'search-form' : FormComponent
   },
   created() {
     this.selectedTab = this.tabs[0]
