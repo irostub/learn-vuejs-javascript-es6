@@ -13,9 +13,8 @@
       <h2 class="container">검색</h2>
     </header>
     <div class="container">
-      
       <!--search form 디렉티브 사용-->
-      <search-form></search-form>
+      <search-form :input='query' @@submit='onSubmit' @@reset='onReset'></search-form>
       
       <div class="content">
         <div v-if="submitted">
@@ -27,7 +26,7 @@
             </ul>
           </div>
           <div v-else>
-            {{query}} 검색어로 찾을수 없습니다 
+            {{inputValue}} 검색어로 찾을수 없습니다 
           </div>
         </div>
         <div v-else>
@@ -76,10 +75,10 @@
 </body>
 </html>
 
-<!--FormComponent.js와 바인딩 할 id-->
+<!--FormComponent.js와 바인딩 할 id로 template 선언-->
 <template id="search-form">
   <form v-on:submit.prevent="onSubmit">
-    <input type="text" v-model="query" v-on:keyup="onKeyup" placeholder="검색어를 입력하세요" autofocus>
-    <button v-show="query.length" v-on:click="onReset" type="reset" class="btn-reset"></button>
+    <input type="text" v-model="inputValue" v-on:keyup="onKeyup" placeholder="검색어를 입력하세요" autofocus>
+    <button v-show="inputValue.length" v-on:click="onReset" type="reset" class="btn-reset"></button>
   </form>
 </template>

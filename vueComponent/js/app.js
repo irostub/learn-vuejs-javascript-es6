@@ -27,10 +27,8 @@ new Vue({
   },
   methods: {
     onSubmit(e) {
+      this.query = e
       this.search()
-    },
-    onKeyup(e) {
-      if (!this.query.length) this.resetForm()
     },
     onReset(e) {
       this.resetForm()
