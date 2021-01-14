@@ -5,6 +5,7 @@ import HistoryModel from './models/HistoryModel.js'
 import FormComponent from './components/FormComponent.js'
 import ResultComponent from './components/ResultComponent.js'
 import ListComponent from './components/ListComponent.js'
+import TabComponent from './components/tabComponent.js'
 
 new Vue({
   el: '#app',
@@ -22,7 +23,8 @@ new Vue({
   components:{
     'search-form' : FormComponent,
     'result-form' : ResultComponent,
-    'list-form' : ListComponent
+    'list-form' : ListComponent,
+    'tab-form' : TabComponent
   },
   created() {
     this.selectedTab = this.tabs[0]
@@ -37,12 +39,12 @@ new Vue({
     onReset(e) {
       this.resetForm()
     },
-    onClickTab(tab) {
-      this.selectedTab = tab
-    },
     onClickKeyword(keyword) {
       this.query = keyword;
       this.search()
+    },
+    onClickTab(tab){
+      this.selectedTab = tab
     },
     onClickRemoveHistory(keyword) {
       HistoryModel.remove(keyword)
