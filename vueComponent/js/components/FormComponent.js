@@ -10,6 +10,12 @@ export default
             inputValue: this.input
         }
     },
+    //watch는 특정 프로퍼티를 감시하고 있다가 해당 프로퍼티가 변경되면 지정된 함수를 처리한다
+    watch:{
+        input: function(newVal,oldVal){
+            this.inputValue = newVal
+        }
+    },
     methods:{
         onSubmit(){
             //이벤트 방출, $emit으로 사용하며 인자로 방출할 이벤트 이름과 방출할 때 전달할 인자를 지정한다.
