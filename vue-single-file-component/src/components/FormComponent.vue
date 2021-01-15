@@ -9,7 +9,6 @@
 export default {
     //단일 파일 컴포넌트에선 template 프로퍼티를 지정하지않는다
     //template: '#search-form',
-    
     props:['input'],
     data(){
         return {
